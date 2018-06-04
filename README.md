@@ -1,20 +1,13 @@
 Headers
 =========
 
-Exploit Title: Clone and Pwn
-
+Exploit Title: Clone and Pwn<br />
 Date: June 4th, 2018
-
 Exploit Author: Alejandro Caceres
-
 Vendor Homepage: https://git-scm.com/
-
 Software Link: https://git-scm.com/downloads
-
 Version: arbitrary code is executed on git client versions In Git before 2.13.7, 2.14.x before 2.14.4, 2.15.x before 2.15.2, 2.16.x before 2.16.4, and 2.17.x before 2.17.1
-
 Tested on: Linux: Ubuntu, Mint
-
 CVE : CVE-2018-11235
 
 
