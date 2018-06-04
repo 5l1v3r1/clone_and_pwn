@@ -1,4 +1,4 @@
-PoC exploit for CVE-2018-11235
+Exploit for CVE-2018-11235
 ==============================
 
 GitHub is not allowing me to push a repository exploiting the vulnerability
@@ -37,3 +37,6 @@ Additional fix for older versions of git courtesy of
 ([details in this post](https://atorralba.github.io/CVE-2018-11235/)).
 
 [git patch]: https://github.com/git/git/commit/0383bbb9015898cbc79abd7b64316484d7713b44
+=======
+# clone_and_pwn
+Exploits CVE-2018-11235
